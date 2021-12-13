@@ -28,6 +28,7 @@ It may take a minute for the exploit to run, and the spinning animation on the p
 - Unplug the USB before a (re)boot cycle or you'll risk corrupting the kernel heap at boot.
 - The browser might tempt you into closing the page prematurely, don't.
 - The loading circle might freeze while the webkit exploit is triggering, this means nothing.
+- This bug works on certain PS5 firmwares, however there's no known strategy for exploiting it at the moment. Using this bug against the PS5 blind wouldn't be advised.
 
 ## Contributors
 
