@@ -13,6 +13,16 @@ The following patches are applied to the kernel:
 5) Allow unprivileged users to call `setuid(0)` successfully. Works as a status check, doubles as a privilege escalation.
 6) (`sys_dynlib_load_prx`) patch
 7) Disable delayed panics from sysVeri
+
+## Short how-to
+This exploit is unlike previous ones where they were based purely in software. Triggering the vulnerability requires plugging in a specially formatted USB device at just the right time. In the repository you'll find a .img file. You can write this .img to a USB using something like Win32DiskImager.
+
+![](https://i.imgur.com/qpiVQGo.png)
+
+When running the exploit on the PS4, wait until it reaches an alert with "Insert USB now. do not close the dialog until notification pops, remove usb after closing it.". As the dialog states, insert the USB, and wait until the "disk format not supported" notification appears, then close out of the alert with "OK".
+
+It may take a minute for the exploit to run, and the spinning animation on the page might freeze - this is fine, let it continue until an error shows or it succeeds and displays "Awaiting payload".
+
 ## Notes
 - You need to insert the USB when the alert pops up, then let it sit there for a bit until the ps4 storage notifications shows up.
 - Unplug the USB before a (re)boot cycle or you'll risk corrupting the kernel heap at boot.
