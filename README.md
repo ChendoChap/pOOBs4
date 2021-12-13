@@ -17,6 +17,8 @@ The following patches are applied to the kernel:
 ## Short how-to
 This exploit is unlike previous ones where they were based purely in software. Triggering the vulnerability requires plugging in a specially formatted USB device at just the right time. In the repository you'll find a .img file. You can write this .img to a USB using something like Win32DiskImager.
 
+**Note: This will wipe the device, ensure you select the correct drive and that you're OK with that before doing this**
+
 ![](https://i.imgur.com/qpiVQGo.png)
 
 When running the exploit on the PS4, wait until it reaches an alert with "Insert USB now. do not close the dialog until notification pops, remove usb after closing it.". As the dialog states, insert the USB, and wait until the "disk format not supported" notification appears, then close out of the alert with "OK".
