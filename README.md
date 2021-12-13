@@ -17,7 +17,7 @@ The following patches are applied to the kernel:
 ## Short how-to
 This exploit is unlike previous ones where they were based purely in software. Triggering the vulnerability requires plugging in a specially formatted USB device at just the right time. In the repository you'll find a .img file. You can write this .img to a USB using something like Win32DiskImager.
 
-**Note: This will wipe the device, ensure you select the correct drive and that you're OK with that before doing this**
+**Note: This will wipe the USB drive, ensure you select the correct drive and that you're OK with that before doing this**
 
 ![](https://i.imgur.com/qpiVQGo.png)
 
