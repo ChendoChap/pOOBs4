@@ -25,12 +25,14 @@ When running the exploit on the PS4, wait until it reaches an alert with "Insert
 
 It may take a minute for the exploit to run, and the spinning animation on the page might freeze - this is fine, let it continue until an error shows or it succeeds and displays "Awaiting payload".
 
-## Notes
-- You need to insert the USB when the alert pops up, then let it sit there for a bit until the ps4 storage notifications shows up.
+## Extra Notes
 - Unplug the USB before a (re)boot cycle or you'll risk corrupting the kernel heap at boot.
 - The browser might tempt you into closing the page prematurely, don't.
-- The loading circle might freeze while the webkit exploit is triggering, this means nothing.
+- The loading circle might freeze while the webkit exploit is triggering, this doesn't yet mean that the exploit failed.
+- The bug predates firmware 1.00, so 1.00-9.00 should be exploitable using the same strategy (you will need a different userland exploit & gadgets).
+- You can replace the loader with a specific payload to load stuff directly instead of doing it through sockets.
 - This bug works on certain PS5 firmwares, however there's no known strategy for exploiting it at the moment. Using this bug against the PS5 blind wouldn't be advised.
+- Please don't open issues to tell me that there are none... nor make attempts at making me do your homework for you.
 
 ## Contributors
 
@@ -40,4 +42,4 @@ It may take a minute for the exploit to run, and the spinning animation on the p
 
 ## Special Thanks
 - [Andy Nguyen](https://twitter.com/theflow0)
-- [sleirsgoevy](https://twitter.com/sleirsgoevy) - [9.00 Webkit exploit](https://gist.github.com/sleirsgoevy/6beca32893909095f4bba1ce29167992)
+- [sleirsgoevy](https://twitter.com/sleirsgoevy) - [9.00 Webkit exploit](https://github.com/sleirsgoevy/bad_hoist/tree/9.00)
