@@ -33,7 +33,10 @@ It may take a minute for the exploit to run, and the spinning animation on the p
 - You can replace the loader with a specific payload to load stuff directly instead of doing it through sockets.
 - This bug works on certain PS5 firmwares, however there's no known strategy for exploiting it at the moment. Using this bug against the PS5 blind wouldn't be advised.
 - Please don't open issues to tell me that there are none... nor make attempts at making me do your homework for you.
-
+- This repository does not provide anything beyond the initial kernel patches that allow you to execute payloads.
+If you encounter issues with certain payloads you should report your issues to the developers of those payloads through whatever means they make available to you.
+- The name of the repository is a fusion of the words 'ps4' and '[OOB](https://cwe.mitre.org/data/definitions/787.html)', the latter being the kind of vulnerability this implementation attempts to exploit, any other interpretation is purely coincidental & unintended.
+- As stated before, this bug was found by diffing the 9.00 and 9.03 kernels, this does imply that the bug was fixed on 9.03.
 ## Contributors
 
 - laureeeeeee
