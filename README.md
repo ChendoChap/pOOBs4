@@ -37,6 +37,8 @@ It may take a minute for the exploit to run, and the spinning animation on the p
 If you encounter issues with certain payloads you should report your issues to the developers of those payloads through whatever means they make available to you.
 - The name of the repository is a fusion of the words 'ps4' and '[OOB](https://cwe.mitre.org/data/definitions/787.html)', the latter being the kind of vulnerability this implementation attempts to exploit, any other interpretation is purely coincidental & unintended.
 - As stated before, this bug was found by diffing the 9.00 and 9.03 kernels, this does imply that the bug was fixed on 9.03.
+- A stripped down disk image (33 KiB, truncatable to 29 KiB with trailing zeroes, compressible to 1867 bytes) is available for embedded systems: `exfathax_embedded.img`
+
 ## Contributors
 
 - laureeeeeee
