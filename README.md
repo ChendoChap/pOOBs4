@@ -12,7 +12,7 @@ The following patches are applied to the kernel:
 4) Custom system call #11 (`kexec()`) to execute arbitrary code in kernel mode
 5) Allow unprivileged users to call `setuid(0)` successfully. Works as a status check, doubles as a privilege escalation.
 6) (`sys_dynlib_load_prx`) patch
-7) Disable delayed panics from sysVeri
+7) Disables sysVeri
 
 ## Short how-to
 This exploit is unlike previous ones where they were based purely in software. Triggering the vulnerability requires plugging in a specially formatted USB device at just the right time. In the repository you'll find a .img file. You can write this .img to a USB using something like Win32DiskImager.
